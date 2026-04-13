@@ -37,7 +37,7 @@ public class BiciPalma {
 		*/
 		
 		for ( int id: bicicletas ){
-			Estacion bicicleta = new Estacion(id);
+			Bicicleta bicicleta = new Bicicleta(id);
 			estacion.anclarBicicleta(bicicleta);
 		}
 
