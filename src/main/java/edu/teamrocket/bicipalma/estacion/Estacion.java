@@ -1,6 +1,7 @@
 package edu.teamrocket.bicipalma.estacion;
 
 import edu.teamrocket.bicipalma.bicicleta.Bicicleta;
+import edu.teamrocket.bicipalma.tarjetaUsuario.TarjetaUsuario;
 
 public class Estacion {
 
@@ -44,6 +45,24 @@ public class Estacion {
                 System.out.println("Anclaje " + (i + 1) + " " + anclajes[i].getId());
             } else {
                 System.out.println("Anclaje " + (i + 1) + " libre");
+            }
+        }
+    }
+
+    public boolean leerTarjetaUsuario(TarjetaUsuario tarjeta) {
+        return tarjeta.isActivada();
+    }
+
+    public void retirarBicicleta(TarjetaUsuario tarjeta) {
+        if (!leerTarjetaUsuario(tarjeta)) {
+            System.out.println("Tarjeta de usuario inactiva");
+        } else {
+            for (int i = 0; i < anclajes.length; i++) {
+                if (anclajes[i] != null) {
+                    System.out.println("bicicleta retirada: " + anclajes[i].getId() + " del anclaje: " + (i + 1));
+                    anclajes[i] = null;
+                    break;
+                }
             }
         }
     }
